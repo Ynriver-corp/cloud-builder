@@ -311,4 +311,40 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   /*-------------- MODAL CONFIRM ---------------*/
+
+  /*-------------- MENU DROPDOWN ---------------*/
+
+  .ant-dropdown, .ant-dropdown-menu-submenu {
+    .ant-dropdown-menu {
+      background: ${props => props.theme.basic.blackDarken};
+
+      .ant-dropdown-menu-item {
+        font-size: 12px !important;
+        color: ${props => props.theme.basic.white};
+
+        :hover {
+          background: ${props => props.theme.basic.blackLighten};
+        }
+      }
+
+      .ant-dropdown-menu-item-group-title {
+        font-size: 12px !important;
+        color: ${props => props.theme.basic.gray};
+      }
+
+      .ant-dropdown-menu-item-group-list {
+
+        .ant-dropdown-menu-submenu-title {
+          font-size: 12px !important;
+          color: ${props => props.theme.basic.white};
+
+          :hover {
+            background: ${props => props.theme.basic.blackLighten};
+          }
+        }
+      }
+    }
+  }
+
+  /*-------------- MENU DROPDOWN ---------------*/
 `;

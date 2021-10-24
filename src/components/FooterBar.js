@@ -16,13 +16,15 @@ export const FooterBar = props => {
     const [authUser,] = useGlobal("user");
     const [, setIsVisibleLoginModal] = useGlobal("isVisibleLoginModal");
 
+    const [terminals, setTerminals] = useGlobal("terminals");
+    const [footerTab, setFooterTab] = useGlobal("footerTab");
     const [projectTab, setProjectTab] = useGlobal("projectTab");
 
     const getCurrentMenu = () =>
         authUser
-            ? menuFooter({setProjectTab, projectTab})
+            ? menuFooter({setProjectTab, projectTab, setFooterTab, footerTab, setTerminals, terminals})
                 .filter(menu => !menu.isAdmin)//aclMenus({menus: menuFooter})
-            : menuFooter({setProjectTab, projectTab})
+            : menuFooter({setProjectTab, projectTab, setFooterTab, footerTab, setTerminals, terminals})
                 .filter(menu => !menu.isAdmin)
 
     const isSelected = path => path === window.location.pathname ? "item item-selected" : "item";

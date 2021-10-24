@@ -1,9 +1,9 @@
-import {BranchesOutlined, FolderOutlined, SearchOutlined, UserOutlined} from "@ant-design/icons";
+import {BranchesOutlined, CodeOutlined, FolderOutlined, SearchOutlined, UserOutlined} from "@ant-design/icons";
 import React from "reactn";
 
 export const userLinks = [];
 
-export const menuFooter = ({setProjectTab, projectTab}) => [
+export const menuFooter = ({setProjectTab, projectTab, setFooterTab, footerTab, setTerminals, terminals}) => [
     {
         name: "Project",
         action: () => setProjectTab && setProjectTab(!projectTab),
@@ -18,6 +18,16 @@ export const menuFooter = ({setProjectTab, projectTab}) => [
         name: "Git",
         url: "/git",
         icon: <BranchesOutlined/>
+    },
+    {
+        name: "Terminal",
+        action: () => {
+            if (!terminals?.length)
+                setTerminals([{title: "Terminal 1", key: 1}]);
+
+            setFooterTab(!footerTab)
+        },
+        icon: <CodeOutlined/>
     },
     {
         name: "Account",
