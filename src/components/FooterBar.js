@@ -18,7 +18,7 @@ export const FooterBar = props => {
 
     const getCurrentMenu = () =>
         authUser
-            ? aclMenus({menus: menuFooter})
+            ? menuFooter.filter(menu => !menu.isAdmin)//aclMenus({menus: menuFooter})
             : menuFooter.filter(menu => !menu.isAdmin)
 
     const isSelected = path => path === window.location.pathname ? "item item-selected" : "item";

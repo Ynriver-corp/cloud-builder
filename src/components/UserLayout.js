@@ -11,7 +11,6 @@ import {FooterBar} from "./FooterBar";
 import {ModalContainer} from "./common/ModalContainer";
 import {useAcl} from "../hooks";
 import {RightDrawer} from "./right-drawer/RightDrawer";
-import {WspIcon} from "./common/wspIcon";
 import {Anchor} from "./form";
 import {PWA} from "./common/pwa";
 import {useAuth} from "../hooks/useAuth";
@@ -109,7 +108,6 @@ export const UserLayout = props => {
                 </Body>
                 {!props.isLanding && <FooterBar/>}
                 <PWA/>
-                <WspIcon/>
             </BodyLayout>
         </Layout>
     </>;

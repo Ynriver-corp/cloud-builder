@@ -1,5 +1,5 @@
 import React, {useEffect, useGlobal, useRef} from "reactn";
-import {authYnriver, firestore} from "../firebase";
+import {authYnriver, firestoreYnriver} from "../firebase";
 import {useAuth} from "../hooks/useAuth";
 import {useUser} from "../hooks";
 
@@ -14,7 +14,7 @@ export const WithAuthentication = props => {
 
     useEffect(() => {
         const fetchAuthUser = user =>
-            unSubScribeAuthUser.current = firestore
+            unSubScribeAuthUser.current = firestoreYnriver
                 .collection("users")
                 .doc(user.uid)
                 .onSnapshot(async onSnapShotUser => {
