@@ -13,6 +13,7 @@ import {
 const {SubMenu} = Menu;
 
 export const BarMenu = () => {
+    const [terminals, setTerminals] = useGlobal("terminals");
     const [footerTab, setFooterTab] = useGlobal("footerTab");
 
     const subMenus =
@@ -78,7 +79,12 @@ export const BarMenu = () => {
         <Tooltip title="Terminal"
                  placement="bottom">
             <Anchor variant="white"
-                    onClick={() => setFooterTab(!footerTab)}
+                    onClick={() => {
+                        if (!terminals?.length)
+                            setTerminals([{title: "Terminal 1", key: 1}]);
+
+                        setFooterTab(!footerTab)
+                    }}
                     margin="auto">
                 <CodeOutlined/> Terminal
             </Anchor>

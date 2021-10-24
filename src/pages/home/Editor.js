@@ -18,6 +18,7 @@ export const Editor = () => {
     const [code, setCode] = useState("console.log('hola')");
     const [clientWidth, setClientWidth] = useState(null);
     const [clientHeight, setClientHeight] = useState(null);
+    const [currentTab, setCurrentTab] = useState(null);
 
     const options = {
         selectOnLineNumbers: true,
@@ -37,6 +38,7 @@ export const Editor = () => {
         const clientWidth = divRef.current?.clientWidth ?? 0;
         let clientHeight = divRef.current?.clientHeight ?? 0;
 
+        if (editorTabs?.length) setCurrentTab(editorTabs[editorTabs.length - 1].key);
 
         setClientWidth(clientWidth);
         setClientHeight(clientHeight);
@@ -65,13 +67,13 @@ export const Editor = () => {
         await setEditorTabs(newEditorTabs);
 
         if (newEditorTabs?.length) return
-        console.log("reset")
+
         setClientWidth(null);
         setClientHeight(null);
     };
 
     return <EditorCss ref={divRef}>
-        <TabsCss type="card">
+        <TabsCss type="card" defaultActiveKey={currentTab} key={currentTab}>
             {
                 editorTabs
                     .map(tab =>
@@ -92,7 +94,8 @@ export const Editor = () => {
                                         editorDidMount={editorDidMount}
                                     /> : null
                             }
-                        </TabPane>)
+                        </TabPane>
+                    )
             }
         </TabsCss>
         {/*

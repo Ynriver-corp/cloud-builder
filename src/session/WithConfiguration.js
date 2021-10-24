@@ -36,6 +36,7 @@ export const WithConfiguration = Component => () => {
                 codeTheme: "vs-dark",
                 projectTab: true,
                 footerTab: true,
+                terminals: [{title: "Terminal 1", key: 1}, {title: "Terminal 2", key: 2}],
                 editorTabs: [],
 
                 currentRoute: {},
