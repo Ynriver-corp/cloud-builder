@@ -21,7 +21,7 @@ module.exports = {
     plugins: [
         new MonacoWebpackPlugin({
             languages: ['json', 'javascript', 'css', 'dockerfile',
-                'html', 'less', 'mysql', 'scss', 'shell', 'sql', 'typescript''xml', 'yaml']
+                'html', 'less', 'mysql', 'scss', 'shell', 'sql', 'typescript', 'xml', 'yaml']
         }),
         new CopyPlugin({
             patterns: [
