@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "default": "cloud-builder-330002",
+    "dev": "cloud-builder-330002"
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "common": {
+    "label": "Acceso de común",
+    "items": {
+      "/home": "Inicio de pagina",
+      "/users": "Profile",
+      "/users/:userId": "Profile user"
+    }
+  },
+  "adminDomain": {
+    "label": "Formulario de dominio",
+    "items": {
+      "/admin/hosts": "Lista de dominios",
+      "/admin/hosts/:hostId": "Edicion de dominios",
+      "/admin/hosts/new": "Crear de dominios"
+    }
+  },
+  "adminRoutes": {
+    "label": "Formulario de configuracion de RUTAS[diseño]",
+    "items": {
+      "/admin/hosts/:hostId/routes": "Lista de rutas",
+      "/admin/hosts/:hostId/routes/new": "Crear ruta",
+      "/admin/hosts/:hostId/routes#delete": "Eliminar ruta",
+      "/admin/hosts/:hostId/routes/:routeId": "Edicion de diseño de rutas"
+    }
+  },
+  "adminSEO": {
+    "label": "Formulario de configuracion de SEO",
+    "items": {
+      "/admin/hosts/:hostId/routes/:routeId/seo": "Edicion de SEO (rutas)"
+    }
+  },
+  "adminManifest": {
+    "label": "Formulario de menifest",
+    "items": {
+      "/admin/hosts/:hostId/manifests": "Edicion de manifests"
+    }
+  },
+  "adminTemplates": {
+    "label": "Formulario de templates",
+    "items": {
+      "/admin/hosts/:hostId/templates": "Lista de templates",
+      "/admin/hosts/:hostId/templates/:templateId": "Edicion de template"
+    }
+  },
+  "adminUsers": {
+    "label": "Formulario de usuarios",
+    "items": {
+      "/admin/users": "Lista de usuario",
+      "/admin/users/:userId": "Detalles de usuarios",
+      "/admin/users/:userId/acls": "Editar permisos de usuarios"
+    }
+  }
+}

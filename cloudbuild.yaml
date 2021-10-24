@@ -1,19 +1,19 @@
 steps:
   # Build the container image
   - name: "gcr.io/cloud-builders/docker"
-    args: [ "build", "-t", "gcr.io/hotspot-5919f/hotspot-red", "." ]
+    args: [ "build", "-t", "gcr.io/cloud-builder-330002/cloud-builder-red", "." ]
   # Push the container image to Container Registry
   - name: "gcr.io/cloud-builders/docker"
-    args: [ "push", "gcr.io/hotspot-5919f/hotspot-red" ]
+    args: [ "push", "gcr.io/cloud-builder-330002/cloud-builder-red" ]
   # Deploy container image to Cloud Run
   - name: "gcr.io/cloud-builders/gcloud"
     args:
       [
           "run",
           "deploy",
-          "hotspot-red",
+          "cloud-builder-red",
           "--image",
-          "gcr.io/hotspot-5919f/hotspot-red",
+          "gcr.io/cloud-builder-330002/cloud-builder-red",
           "--region",
           "us-central1",
           "--platform",
@@ -21,7 +21,7 @@ steps:
           "--allow-unauthenticated",
       ]
 images:
-  - "gcr.io/hotspot-5919f/hotspot-red"
+  - "gcr.io/cloud-builder-330002/cloud-builder-red"
 options:
   logging: CLOUD_LOGGING_ONLY
   # TODO: Solicitar confirmacion de build y deploy de una nueva version.
