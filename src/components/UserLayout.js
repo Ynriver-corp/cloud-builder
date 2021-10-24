@@ -4,8 +4,6 @@ import {Layout} from "./index";
 import {Tooltip} from "antd";
 import {MenuOutlined} from "@ant-design/icons";
 import {useHistory, useLocation} from "react-router-dom";
-import {useI18n} from "../utils";
-import {LanguagesMenu} from "./LanguagesMenu";
 import {config} from "../firebase";
 import {mediaQuery, sizes} from "../constants";
 import {ForgotPassword, Login, Verify} from "../pages";
@@ -17,6 +15,7 @@ import {WspIcon} from "./common/wspIcon";
 import {Anchor} from "./form";
 import {PWA} from "./common/pwa";
 import {useAuth} from "../hooks/useAuth";
+import {Image} from "./common/Image";
 
 export const UserLayout = props => {
     const {signOut} = useAuth();
@@ -28,8 +27,6 @@ export const UserLayout = props => {
     const [, setOpenRightDrawer] = useGlobal("openRightDrawer");
     //const [openLeftDrawer, setOpenLeftDrawer] = useGlobal("openLeftDrawer");
     const [isVisibleForgotPassword,] = useGlobal("isVisibleForgotPassword");
-
-    const i18n = useI18n();
 
     const loginModal = () =>
         (isVisibleLoginModal && !authUser)
@@ -64,20 +61,22 @@ export const UserLayout = props => {
         {verifiedModalResendEmail()}
         {RightDrawerForm()}
         <Layout>
-            <Header>
+            <HeaderLayout>
                 <HeaderLogo>
-                    <Tooltip title="Go home"
+                    <Tooltip title="Open menu"
                              placement="bottom">
-                        <img src={`${config.storageUrl}/resources/${window.location.hostname}.png`}
-                             onClick={() =>
-                                 userAcls.some((acl) => acl.includes("admin"))
-                                     ? history.push("/admin")
-                                     : authUser
-                                         ? history.push("/home")
-                                         : history.push("/")
-                             }
-                             className="logo-dashboard"
-                             alt="Logo dashboard"/>
+                        <Image src={`${config.storageUrl}/resources/${window.location.hostname}.png`}
+                               cursor="pointer"
+                               width="25px"
+                               margin="auto auto auto 5px"
+                               onClick={() =>
+                                   userAcls.some((acl) => acl.includes("admin"))
+                                       ? history.push("/admin")
+                                       : authUser
+                                           ? history.push("/home")
+                                           : history.push("/")
+                               }
+                               alt="Logo dashboard"/>
                     </Tooltip>
                     <div className="email">{authUser && authUser.email}</div>
                 </HeaderLogo>
@@ -87,15 +86,14 @@ export const UserLayout = props => {
                         && <>
                             <Anchor onClick={() => setIsVisibleLoginModal(true)}
                                     variant="primary">
-                                {i18n(["general", "login"])}
+                                Iniciar sesion
                             </Anchor>
                             <Anchor onClick={() => history.push("register")}
                                     variant="primary">
-                                {i18n(["general", "register"])}
+                                Registrate
                             </Anchor>
                         </>
                     }
-                    <LanguagesMenu/>
                     {
                         authUser &&
                         <div className="menu-icon-nav"
@@ -104,43 +102,21 @@ export const UserLayout = props => {
                         </div>
                     }
                 </SingIn>
-            </Header>
-            <LayoutMenu>
+            </HeaderLayout>
+            <BodyLayout>
                 <Body isLanding={props.isLanding}>
                     {props.children}
                 </Body>
                 {!props.isLanding && <FooterBar/>}
                 <PWA/>
                 <WspIcon/>
-            </LayoutMenu>
+            </BodyLayout>
         </Layout>
     </>;
 };
 
-const SingIn = styled.div`
-  display: flex;
-  flex-direction: row;
-  margin-left: auto;
-
-  a {
-    padding: 0 10px 0 10px;
-    font-weight: bold;
-  }
-
-  .menu-icon-nav {
-    cursor: pointer;
-    font-size: ${sizes.font.normal};
-    margin: 5px;
-  }
-`;
-
-const LayoutMenu = styled.section`
-  height: 100vh;
-  padding: 0;
-`;
-
-const Header = styled.header`
-  height: 50px;
+const HeaderLayout = styled.header`
+  height: 35px;
   position: fixed;
   z-index: 99;
   display: flex;
@@ -162,36 +138,44 @@ const HeaderLogo = styled.div`
   display: flex;
   flex-direction: row;
 
-  .header-logo-desktop {
-    i {
-      cursor: pointer;
-      font-size: 25px;
-      margin-left: 4px;
-    }
-  }
-
-  .logo-dashboard {
-    cursor: pointer;
-    height: 25px;
-    margin-left: 10px;
-    opacity: 0.5;
-  }
-
   .email {
     margin: auto auto auto 15px;
   }
 `;
 
-const Body = styled.section`
-  width: 100vw;
-  min-height: 100%;
-  overflow: auto;
-  padding: 50px 0 60px 0;
 
-  ${mediaQuery.afterTablet} {
-    padding: 50px 0 0 ${props => props.isLanding ? "0" : "4rem"};
+const SingIn = styled.div`
+  display: flex;
+  flex-direction: row;
+  margin-left: auto;
+
+  a {
+    padding: 0 10px 0 10px;
+    font-weight: bold;
   }
 
+  .menu-icon-nav {
+    cursor: pointer;
+    font-size: ${sizes.font.normal};
+    margin: 5px;
+  }
+`;
+
+const BodyLayout = styled.section`
+  height: 100vh;
+  width: 100vw;
+  padding: 0;
+`;
+
+const Body = styled.section`
+  width: 100vw;
+  overflow: auto;
   flex: 1 1 auto;
+  min-height: 100%;
+  padding: 35px 10px 0; //55px
   background-color: ${props => props.theme.basic.black};
+
+  ${mediaQuery.afterTablet} {
+    padding: 35px 0 0 ${props => props.isLanding ? "0" : "45px"};
+  }
 `;

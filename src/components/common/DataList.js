@@ -1,32 +1,34 @@
-import {BarChartOutlined, HomeOutlined, UserOutlined} from "@ant-design/icons";
+import {BranchesOutlined, FolderOutlined, SearchOutlined, UserOutlined} from "@ant-design/icons";
 import React from "reactn";
 
 export const userLinks = [];
 
 export const menuFooter = [
     {
-        name: "Inicio",
-        url: "/home",
-        isAdmin: false,
-        type: <HomeOutlined/>
+        name: "Project",
+        url: "/project",
+        icon: <FolderOutlined/>
     },
     {
-        name: "Dominios",
-        url: "/admin/hosts",
-        isAdmin: true,
-        type: <BarChartOutlined/>
+        name: "Search",
+        action: () => console.log("hello"),
+        icon: <SearchOutlined/>
     },
     {
-        name: "Usuarios",
+        name: "Git",
+        url: "/git",
+        icon: <BranchesOutlined/>
+    },
+    {
+        name: "Account",
+        url: "/account",
+        icon: <UserOutlined/>
+    },
+    {
+        name: "Users",
         url: "/admin/users",
         isAdmin: true,
-        type: <BarChartOutlined/>
-    },
-    {
-        name: "Perfil",
-        url: "/users",
-        isAdmin: false,
-        type: <UserOutlined/>
+        icon: <UserOutlined/>
     },
 ];
 

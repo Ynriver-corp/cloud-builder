@@ -27,7 +27,7 @@ export const GlobalStyle = createGlobalStyle`
       }
     }
 
-    * {
+    .med-seg {
       transition: all 0.5s ease;
     }
 

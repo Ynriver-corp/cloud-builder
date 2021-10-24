@@ -25,7 +25,7 @@ export const FooterBar = props => {
 
     return <ContainerFooter authUser={authUser}
                             itemLenght={getCurrentMenu()?.length + 1}>
-        <div className="footer-items">
+        <div className="footer-items med-seg">
             {
                 getCurrentMenu()
                     .map(userLink =>
@@ -33,10 +33,11 @@ export const FooterBar = props => {
                              key={`key-menu-user-link-${userLink.url}`}
                              onClick={() =>
                                  authUser
-                                     ? history.push(userLink.url)
+                                     ? userLink.url ?
+                                         history.push(userLink.url) : userLink.action
                                      : setIsVisibleLoginModal(true)
                              }>
-                            {userLink.type}
+                            {userLink.icon}
                             <span className="label">{userLink.name}</span>
                         </div>
                     )
@@ -56,7 +57,7 @@ export const FooterBar = props => {
 const ContainerFooter = styled.section`
   position: fixed;
   background: ${props => props.theme.basic.blackDarken};
-  height: 60px;
+  height: 55px;
   width: 100%;
   display: flex;
   align-items: center;
@@ -67,7 +68,7 @@ const ContainerFooter = styled.section`
   //z-index: 999;
 
   .footer-items {
-    height: 60px;
+    height: 55px;
     display: grid;
     width: 100%;
     background: ${props => props.theme.basic.blackDarken};
@@ -75,22 +76,22 @@ const ContainerFooter = styled.section`
     grid-template-columns: repeat(${props => props.authUser ? props.itemLenght : props.itemLenght - 1}, 1fr);
 
     .item {
-      position: relative;
       display: flex;
-      flex-direction: column;
+      cursor: pointer;
+      position: relative;
       align-items: center;
+      flex-direction: column;
       justify-content: center;
       color: ${props => props.theme.basic.white};
-      cursor: pointer;
 
       .anticon {
-        font-size: 20px;
+        font-size: 15px;
       }
 
       .label {
-        font-size: 0.6rem;
-        text-align: center;
+        font-size: 8px;
         margin-top: 5px;
+        text-align: center;
       }
     }
 
@@ -125,11 +126,11 @@ const ContainerFooter = styled.section`
 
   ${mediaQuery.afterTablet} {
     background-color: ${props => props.theme.basic.blackDarken};
-    width: 61px;
+    width: 45px;
     height: 100vh;
-    padding-top: 50px;
-    //z-index: 998;
+    padding-top: 35px;
     align-items: flex-start;
+    //z-index: 998;
 
     .footer-items {
       display: flex;
@@ -139,7 +140,7 @@ const ContainerFooter = styled.section`
 
       .item,
       .item-selected {
-        height: 65px;
+        height: 60px;
 
         :hover {
           background-color: ${props => props.theme.basic.blackLighten};
