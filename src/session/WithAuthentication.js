@@ -1,5 +1,5 @@
 import React, {useEffect, useGlobal, useRef} from "reactn";
-import {auth, firestore} from "../firebase";
+import {authYnriver, firestore} from "../firebase";
 import {useAuth} from "../hooks/useAuth";
 import {useUser} from "../hooks";
 
@@ -20,7 +20,7 @@ export const WithAuthentication = props => {
                 .onSnapshot(async onSnapShotUser => {
 
                     if (!onSnapShotUser.exists) {
-                        return auth.currentUser.delete();
+                        return authYnriver.currentUser.delete();
                     }
 
                     const currentUser = onSnapShotUser.data();
@@ -31,7 +31,7 @@ export const WithAuthentication = props => {
                     await setIsLoadingCreateUser(false);
                 });
 
-        const unsubscribeAuthStateChanged = auth.onAuthStateChanged(async user => {
+        const unsubscribeAuthStateChanged = authYnriver.onAuthStateChanged(async user => {
 
             if (!user) unSubScribeAuthUser.current && unSubScribeAuthUser.current();
 
@@ -46,7 +46,7 @@ export const WithAuthentication = props => {
 
     useEffect(() => {
         const afterRedirect = async () => {
-            const result = await auth.getRedirectResult();
+            const result = await authYnriver.getRedirectResult();
 
             if (!result.user || !result?.additionalUserInfo?.isNewUser) {
                 await setIsLoadingUser(false);

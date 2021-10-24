@@ -11,7 +11,7 @@ const version = "0.1";
 
 let config;
 
-if ((hostName.includes("-dev") || hostName.includes("localhost"))) {
+if (hostName.includes("-dev") || hostName.includes("localhost")) {
     config = configJson.development;
     console.log("dev");
 } else {
@@ -26,8 +26,13 @@ const firestore = firebase.firestore();
 const storage = firebase.storage();
 const auth = firebase.auth();
 
+firebase.initializeApp(config.firebaseYnriver, "ynriver");
+const firestoreYnriver = firebase.app("ynriver").firestore();
+const authYnriver = firebase.app("ynriver").auth();
+
 try {
     firestore.settings({ignoreUndefinedProperties: true});
+    firestoreYnriver.settings({ignoreUndefinedProperties: true});
 } catch (error) {
     console.error("ignoreUndefinedProperties", error)
 }
@@ -39,11 +44,13 @@ if (hostName === "localhost") {
 }
 
 export {
-    firebase,
+    firestoreYnriver,
+    authYnriver,
     firestore,
-    storage,
-    auth,
-    config,
     analytics,
-    version
+    firebase,
+    version,
+    storage,
+    config,
+    auth,
 };

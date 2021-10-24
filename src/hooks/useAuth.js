@@ -1,6 +1,6 @@
 import {authenticationErrors} from "../firebase/authentication";
 import React, {useEffect, useGlobal, useState} from "reactn";
-import {auth, config, firebase} from "../firebase";
+import {authYnriver, config, firebase} from "../firebase";
 import {useUser} from "./useLocalStorageState";
 import acls from "../hooks/acl/acls.json";
 import styled from "styled-components";
@@ -74,7 +74,7 @@ export const useAuth = () => {
     }, [error]);
 
     const signOut = async () => {
-        await auth.signOut();
+        await authYnriver.signOut();
         setLSAuthUser.reset();
         await setAuthUser(null);
     };
@@ -82,7 +82,7 @@ export const useAuth = () => {
     const signIn = async user => {
         try {
             await setIsLoadingUser(true);
-            await auth.signInWithEmailAndPassword(user.email.trim().toLowerCase(), user.password);
+            await authYnriver.signInWithEmailAndPassword(user.email.trim().toLowerCase(), user.password);
         } catch (error) {
             let errorMessage = authenticationErrors[error.code];
             setError(errorMessage || "Ha ocurrido un error, intenta nuevamente");
@@ -96,7 +96,7 @@ export const useAuth = () => {
             await setIsLoadingUser(true);
             await setIsLoadingCreateUser(true);
 
-            const result = await auth.createUserWithEmailAndPassword(
+            const result = await authYnriver.createUserWithEmailAndPassword(
                 user.email.toLowerCase().trim(),
                 user.password
             );
@@ -140,7 +140,7 @@ export const useAuth = () => {
             if (error) throw get(error, "message", "ha ocurrido un problema");
 
         } catch (error) {
-            await auth.currentUser.delete();
+            await authYnriver.currentUser.delete();
             setError(error);
         }
     };
@@ -160,7 +160,7 @@ export const useAuth = () => {
 
             const currentProvider_ = currentProvider(provider);
 
-            await auth.signInWithRedirect(currentProvider_);
+            await authYnriver.signInWithRedirect(currentProvider_);
 
         } catch (error) {
             setError(error);
@@ -172,7 +172,7 @@ export const useAuth = () => {
     const recoveryPassword = async email => {
         try {
 
-            await auth.sendPasswordResetEmail(email);
+            await authYnriver.sendPasswordResetEmail(email);
 
         } catch (error) {
             const errorMessage = authenticationErrors[error.code];

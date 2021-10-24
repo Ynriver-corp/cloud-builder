@@ -1,32 +1,52 @@
 {
   "production": {
     "firebase": {
-      "apiKey": "AIzaSyAumzcHFSSWwz2QgO0fbH_28nthF-2pMm0",
-      "authDomain": "blank-297915.firebaseapp.com",
-      "projectId": "blank-297915",
-      "storageBucket": "blank-297915.appspot.com",
-      "messagingSenderId": "1093087253915",
-      "appId": "1:1093087253915:web:eb03b5ae1326f751c6fd3e",
-      "measurementId": "G-CZM75TS4MV"
+      "apiKey": "AIzaSyDQuPbTPdznKjkvzvRLn3NUqdfP0h5bqko",
+      "authDomain": "cloud-builder-330002.firebaseapp.com",
+      "projectId": "cloud-builder-330002",
+      "storageBucket": "cloud-builder-330002.appspot.com",
+      "messagingSenderId": "273194531879",
+      "appId": "1:273194531879:web:be465b573695a982cba202",
+      "measurementId": "G-5RM9W9LQC7"
     },
-    "serverUrlLocal": "http://localhost:5001/blank-297915/us-central1/api",
-    "serverUrl": "https://blank-297915.web.app",
-    "storageUrl": "https://storage.googleapis.com/blank-297915.appspot.com",
+    "firebaseYnriver": {
+      "apiKey": "AIzaSyA7xTybzusA2N2j5GsQhXGClH3Ppnsqn9g",
+      "authDomain": "ynriver-1534557575808.firebaseapp.com",
+      "databaseURL": "https://ynriver-1534557575808.firebaseio.com",
+      "projectId": "ynriver-1534557575808",
+      "storageBucket": "ynriver-1534557575808.appspot.com",
+      "messagingSenderId": "168295260457",
+      "appId": "1:168295260457:web:2799b85f6fef2afb17d738",
+      "measurementId": "G-1TLCE43E8L"
+    },
+    "serverUrlLocal": "http://localhost:5001/cloud-builder-330002/us-central1/api",
+    "serverUrl": "https://cloud-builder-330002.web.app",
+    "storageUrl": "https://storage.googleapis.com/cloud-builder-330002.appspot.com",
     "analytics": ""
   },
   "development": {
     "firebase": {
-      "apiKey": "AIzaSyAumzcHFSSWwz2QgO0fbH_28nthF-2pMm0",
-      "authDomain": "blank-297915.firebaseapp.com",
-      "projectId": "blank-297915",
-      "storageBucket": "blank-297915.appspot.com",
-      "messagingSenderId": "1093087253915",
-      "appId": "1:1093087253915:web:eb03b5ae1326f751c6fd3e",
-      "measurementId": "G-CZM75TS4MV"
+      "apiKey": "AIzaSyDQuPbTPdznKjkvzvRLn3NUqdfP0h5bqko",
+      "authDomain": "cloud-builder-330002.firebaseapp.com",
+      "projectId": "cloud-builder-330002",
+      "storageBucket": "cloud-builder-330002.appspot.com",
+      "messagingSenderId": "273194531879",
+      "appId": "1:273194531879:web:be465b573695a982cba202",
+      "measurementId": "G-5RM9W9LQC7"
     },
-    "serverUrlLocal": "http://localhost:5001/blank-297915/us-central1/api",
-    "serverUrl": "https://blank-297915.web.app",
-    "storageUrl": "https://storage.googleapis.com/blank-297915.appspot.com",
+    "firebaseYnriver": {
+      "apiKey": "AIzaSyA7xTybzusA2N2j5GsQhXGClH3Ppnsqn9g",
+      "authDomain": "ynriver-1534557575808.firebaseapp.com",
+      "databaseURL": "https://ynriver-1534557575808.firebaseio.com",
+      "projectId": "ynriver-1534557575808",
+      "storageBucket": "ynriver-1534557575808.appspot.com",
+      "messagingSenderId": "168295260457",
+      "appId": "1:168295260457:web:2799b85f6fef2afb17d738",
+      "measurementId": "G-1TLCE43E8L"
+    },
+    "serverUrlLocal": "http://localhost:5001/cloud-builder-330002/us-central1/api",
+    "serverUrl": "https://cloud-builder-330002.web.app",
+    "storageUrl": "https://storage.googleapis.com/cloud-builder-330002.appspot.com",
     "analytics": ""
   }
 }

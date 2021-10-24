@@ -1,4 +1,4 @@
-import {auth} from "../../firebase";
+import {authYnriver} from "../../firebase";
 import defaultTo from "lodash/defaultTo";
 
 export const useFetch = () => {
@@ -34,10 +34,10 @@ export const useFetch = () => {
             "Content-Type": "application/json",
         };
 
-        const authUser = auth.currentUser;
+        const authUser = authYnriver.currentUser;
         let newToken = token;
 
-        if (authUser) newToken = await auth.currentUser.getIdToken();
+        if (authUser) newToken = await authYnriver.currentUser.getIdToken();
 
         if (token || authUser) headers.Authorization = `Bearer ${defaultTo(token, newToken)}`;
 
