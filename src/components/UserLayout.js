@@ -84,7 +84,7 @@ export const UserLayout = props => {
                                }
                                alt="Logo dashboard"/>
                     </Tooltip>
-                    <div className="email">{authUser && authUser.email}</div>
+                    {/*<div className="email">{authUser && authUser.email}</div>*/}
                 </HeaderLogo>
                 <SingIn>
                     {
