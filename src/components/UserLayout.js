@@ -2,14 +2,7 @@ import React, {useGlobal} from "reactn";
 import styled from "styled-components";
 import {Layout} from "./index";
 import {Tooltip} from "antd";
-import {
-    ArrowLeftOutlined,
-    ArrowRightOutlined,
-    BranchesOutlined,
-    CheckOutlined,
-    CodeOutlined,
-    MenuOutlined
-} from "@ant-design/icons";
+import {MenuOutlined} from "@ant-design/icons";
 import {useHistory, useLocation} from "react-router-dom";
 import {config} from "../firebase";
 import {mediaQuery, sizes} from "../constants";
@@ -22,6 +15,7 @@ import {Anchor} from "./form";
 import {PWA} from "./common/pwa";
 import {useAuth} from "../hooks/useAuth";
 import {Image} from "./common/Image";
+import {BarMenu} from "./BarMenu";
 
 export const UserLayout = props => {
     const {signOut} = useAuth();
@@ -103,41 +97,7 @@ export const UserLayout = props => {
                     {
                         authUser &&
                         <>
-                            <Tooltip title="Pull"
-                                     placement="bottom">
-                                <Anchor variant="primary"
-                                        margin="auto">
-                                    <ArrowLeftOutlined/>
-                                </Anchor>
-                            </Tooltip>
-                            <Tooltip title="Commit"
-                                     placement="bottom">
-                                <Anchor variant="primary"
-                                        margin="auto">
-                                    <CheckOutlined/>
-                                </Anchor>
-                            </Tooltip>
-                            <Tooltip title="Push"
-                                     placement="bottom">
-                                <Anchor variant="primary"
-                                        margin="auto">
-                                    <ArrowRightOutlined/>
-                                </Anchor>
-                            </Tooltip>
-                            <Tooltip title="Git branch: master"
-                                     placement="bottom">
-                                <Anchor variant="primary"
-                                        margin="auto">
-                                    <BranchesOutlined/> master
-                                </Anchor>
-                            </Tooltip>
-                            <Tooltip title="Terminal"
-                                     placement="bottom">
-                                <Anchor variant="primary"
-                                        margin="auto">
-                                    <CodeOutlined/> Terminal
-                                </Anchor>
-                            </Tooltip>
+                            <BarMenu/>
                             <div className="menu-icon-nav"
                                  onClick={() => setOpenRightDrawer(true)}>
                                 <MenuOutlined/>
