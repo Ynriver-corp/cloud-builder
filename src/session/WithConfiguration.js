@@ -32,7 +32,12 @@ export const WithConfiguration = Component => () => {
                 settings: collectionToDate({...settingsLS, version}),
                 location,
                 languageCode,
+
                 codeTheme: "vs-dark",
+                projectTab: true,
+                footerTab: true,
+                editorTabs: [],
+
                 currentRoute: {},
                 currentTemplate: {},
                 register: null,

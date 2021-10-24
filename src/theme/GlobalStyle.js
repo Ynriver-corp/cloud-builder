@@ -41,8 +41,8 @@ export const GlobalStyle = createGlobalStyle`
 
   /*-------------- FIX SALTO DE LINEA GENERAL ----------------*/
   ::-webkit-scrollbar {
-    width: 3px;
-    height: 3px;
+    //width: 3px;
+    //height: 3px;
   }
 
   ::-webkit-scrollbar-track {
@@ -92,7 +92,6 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     background: ${(props) => props.theme.basic.blackDarken};
     font-family: 'Encode Sans', sans-serif;
-    overflow: auto !important;
   }
 
   h4, h5, h6 {

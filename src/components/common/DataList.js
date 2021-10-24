@@ -3,10 +3,10 @@ import React from "reactn";
 
 export const userLinks = [];
 
-export const menuFooter = [
+export const menuFooter = ({setProjectTab, projectTab}) => [
     {
         name: "Project",
-        url: "/project",
+        action: () => setProjectTab && setProjectTab(!projectTab),
         icon: <FolderOutlined/>
     },
     {
@@ -23,13 +23,7 @@ export const menuFooter = [
         name: "Account",
         url: "/account",
         icon: <UserOutlined/>
-    },
-    {
-        name: "Users",
-        url: "/admin/users",
-        isAdmin: true,
-        icon: <UserOutlined/>
-    },
+    }
 ];
 
 export const emailTemplates = [

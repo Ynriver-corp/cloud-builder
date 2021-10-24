@@ -124,7 +124,7 @@ const HeaderLayout = styled.header`
   display: flex;
   align-items: center;
   width: 100%;
-  background-color: ${props => props.theme.basic.blackDarken};
+  background: ${props => props.theme.basic.default};
   color: ${props => props.theme.basic.white};
   font-size: ${sizes.font.small};
   font-weight: bold;
@@ -171,8 +171,9 @@ const BodyLayout = styled.section`
 
 const Body = styled.section`
   width: 100vw;
-  overflow: auto;
+  overflow: hidden;
   flex: 1 1 auto;
+  display: grid;
   min-height: 100%;
   padding: 35px 10px 0; //55px
   background-color: ${props => props.theme.basic.black};

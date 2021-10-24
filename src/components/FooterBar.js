@@ -16,10 +16,14 @@ export const FooterBar = props => {
     const [authUser,] = useGlobal("user");
     const [, setIsVisibleLoginModal] = useGlobal("isVisibleLoginModal");
 
+    const [projectTab, setProjectTab] = useGlobal("projectTab");
+
     const getCurrentMenu = () =>
         authUser
-            ? menuFooter.filter(menu => !menu.isAdmin)//aclMenus({menus: menuFooter})
-            : menuFooter.filter(menu => !menu.isAdmin)
+            ? menuFooter({setProjectTab, projectTab})
+                .filter(menu => !menu.isAdmin)//aclMenus({menus: menuFooter})
+            : menuFooter({setProjectTab, projectTab})
+                .filter(menu => !menu.isAdmin)
 
     const isSelected = path => path === window.location.pathname ? "item item-selected" : "item";
 
@@ -34,7 +38,7 @@ export const FooterBar = props => {
                              onClick={() =>
                                  authUser
                                      ? userLink.url ?
-                                         history.push(userLink.url) : userLink.action
+                                         history.push(userLink.url) : userLink.action()
                                      : setIsVisibleLoginModal(true)
                              }>
                             {userLink.icon}
@@ -125,7 +129,7 @@ const ContainerFooter = styled.section`
   }
 
   ${mediaQuery.afterTablet} {
-    background-color: ${props => props.theme.basic.blackDarken};
+    background-color: ${props => props.theme.basic.default};
     width: 45px;
     height: 100vh;
     padding-top: 35px;

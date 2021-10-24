@@ -1,4 +1,4 @@
-import React from "reactn";
+import React, {useGlobal} from "reactn";
 import {Dropdown, Menu, Tooltip} from "antd";
 import {Anchor} from "../form";
 import {
@@ -13,6 +13,8 @@ import {
 const {SubMenu} = Menu;
 
 export const BarMenu = () => {
+    const [footerTab, setFooterTab] = useGlobal("footerTab");
+
     const subMenus =
         <SubMenu title="master">
             <Menu.Item>Checkout</Menu.Item>
@@ -76,6 +78,7 @@ export const BarMenu = () => {
         <Tooltip title="Terminal"
                  placement="bottom">
             <Anchor variant="white"
+                    onClick={() => setFooterTab(!footerTab)}
                     margin="auto">
                 <CodeOutlined/> Terminal
             </Anchor>
