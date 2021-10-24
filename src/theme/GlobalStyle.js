@@ -319,6 +319,7 @@ export const GlobalStyle = createGlobalStyle`
       background: ${props => props.theme.basic.blackDarken};
 
       .ant-dropdown-menu-item {
+        padding: 2px 12px !important;
         font-size: 12px !important;
         color: ${props => props.theme.basic.white};
 
@@ -328,6 +329,7 @@ export const GlobalStyle = createGlobalStyle`
       }
 
       .ant-dropdown-menu-item-group-title {
+        padding: 2px 12px !important;
         font-size: 12px !important;
         color: ${props => props.theme.basic.gray};
       }
@@ -335,11 +337,16 @@ export const GlobalStyle = createGlobalStyle`
       .ant-dropdown-menu-item-group-list {
 
         .ant-dropdown-menu-submenu-title {
+          padding: 2px 12px !important;
           font-size: 12px !important;
           color: ${props => props.theme.basic.white};
 
           :hover {
             background: ${props => props.theme.basic.blackLighten};
+          }
+
+          .anticon {
+            color: ${props => props.theme.basic.white};
           }
         }
       }
