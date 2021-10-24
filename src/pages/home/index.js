@@ -2,7 +2,7 @@ import React, {useGlobal} from "reactn";
 import styled from "styled-components";
 import {Project} from "./Project";
 import {Footer} from "./Footer";
-import {Editor} from "./Editor";
+import {EditorTabs} from "./EditorTabs";
 import {mediaQuery} from "../../constants";
 
 export const Home = () => {
@@ -11,7 +11,7 @@ export const Home = () => {
 
     return <HomeCss projectTab={projectTab} footerTab={footerTab}>
         {projectTab && <Project/>}
-        <Editor/>
+        <EditorTabs/>
         {footerTab && <Footer/>}
     </HomeCss>;
 };
