@@ -8,6 +8,7 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const CompressionPlugin = require("compression-webpack-plugin");
 const TerserPlugin = require('terser-webpack-plugin');
 const CopyPlugin = require("copy-webpack-plugin");
+const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
 
 module.exports = {
     mode: "development"/*production development*/,
@@ -18,6 +19,10 @@ module.exports = {
         publicPath: '/',
     },
     plugins: [
+        new MonacoWebpackPlugin({
+            languages: ['json', 'javascript', 'css', 'dockerfile',
+                'html', 'less', 'mysql', 'scss', 'shell', 'sql', 'typescript''xml', 'yaml']
+        }),
         new CopyPlugin({
             patterns: [
                 {from: path.resolve(__dirname, "src/sw.js")}
@@ -81,6 +86,10 @@ module.exports = {
                     MiniCSSExtractPlugin.loader,
                     'css-loader'
                 ]
+            },
+            {
+                test: /\.ttf$/,
+                type: 'asset/resource'
             },
             {
                 test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
