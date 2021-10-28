@@ -1,8 +1,11 @@
-import React, {useGlobal} from "reactn";
+import React, {useEffect, useGlobal, useRef} from "reactn";
 import styled from "styled-components";
 import {mediaQuery} from "../../constants";
 import {Tabs} from "antd";
 import {CloseOutlined} from "@ant-design/icons";
+//import {XTerm} from "xterm-for-react";
+import {Terminal} from "xterm/lib/xterm"
+import "xterm/css/xterm.css";
 
 const {TabPane} = Tabs;
 
@@ -11,6 +14,14 @@ export const Footer = () => {
     const [projectTab,] = useGlobal("projectTab");
     const [, setFooterTab] = useGlobal("footerTab");
     const [terminals, setTerminals] = useGlobal("terminals");
+
+    const xtermRef = useRef(null);
+
+    useEffect(() => {
+        var term = new Terminal();
+        term.open(xtermRef.current);
+        term.write('Hello from \x1B[1;3;31mxterm.js\x1B[0m $ ')
+    }, []);
 
     const closeTerminal = async (key) => {
         const newTerminals = terminals.filter(editorTab => editorTab.key !== key);
@@ -22,6 +33,7 @@ export const Footer = () => {
     }
 
     return <FooterCss projectTab={projectTab}>
+        <div id="terminal" ref={xtermRef}/>
         <TabsCss type="card">
             {
                 terminals
@@ -33,7 +45,14 @@ export const Footer = () => {
                         }
                                  key={terminal.key}>
                             <div className="terminal">
-                                asd
+                                {/*<XTerm ref={xtermRef}
+                                        onKey={({key}) => {
+                                            console.log("key", key)
+
+                                            if (key.charCodeAt(0) === 13)
+                                                xtermRef.current.terminal.write('\n');
+                                            xtermRef.current.terminal.write(key)
+                                        }}/>*/}
                             </div>
                         </TabPane>
                     )

@@ -6,4 +6,3 @@ export * from "./login";
 export * from "./register";
 export * from "./verification";
 export * from "./lading";
-export * from "./admin";
