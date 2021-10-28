@@ -4,8 +4,11 @@ import {mediaQuery} from "../../constants";
 import {Tabs} from "antd";
 import {CloseOutlined} from "@ant-design/icons";
 //import {XTerm} from "xterm-for-react";
-import {Terminal} from "xterm/lib/xterm"
+//import {Terminal} from "xterm/lib/xterm"
 import "xterm/css/xterm.css";
+
+import {Terminal} from 'xterm';
+import LocalEchoController from 'local-echo';
 
 const {TabPane} = Tabs;
 
@@ -17,11 +20,27 @@ export const Footer = () => {
 
     const xtermRef = useRef(null);
 
+    /*
     useEffect(() => {
-        var term = new Terminal();
+        const term = new Terminal();
         term.open(xtermRef.current);
         term.write('Hello from \x1B[1;3;31mxterm.js\x1B[0m $ ')
     }, []);
+     */
+
+    useEffect(()=>{
+        // Start an xterm.js instance
+        const term = new Terminal();
+        term.open(document.getElementById('terminal'));
+
+        const localEcho = new LocalEchoController();
+        term.loadAddon(localEcho);
+
+        // Read a single line from the user
+        localEcho.read("~$ ")
+            .then(input => alert(`User entered: ${input}`))
+            .catch(error => alert(`Error reading: ${error}`));
+    },[])
 
     const closeTerminal = async (key) => {
         const newTerminals = terminals.filter(editorTab => editorTab.key !== key);
@@ -30,10 +49,13 @@ export const Footer = () => {
         if (newTerminals?.length) return;
 
         await setFooterTab(false);
-    }
+    };
+
+
 
     return <FooterCss projectTab={projectTab}>
         <div id="terminal" ref={xtermRef}/>
+
         <TabsCss type="card">
             {
                 terminals
