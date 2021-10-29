@@ -18,7 +18,6 @@ COPY . /app
 
 RUN apk add g++ make python
 RUN npm install --save ./server
-RUN npm run startServer
 
 # define env
 # ENV NODE_ENV=production
@@ -26,9 +25,10 @@ RUN npm run startServer
 # create build
 #&& rm -rf .next/cache
 # RUN npm install --force
-# RUN npm run start
+# RUN npm run buildWebPack
 
 FROM nginx:1.19-alpine
 COPY --from=builder /app/build /usr/share/nginx/html
 EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["npm", "startServer"]
+# CMD ["nginx", "-g", "daemon off;"]
