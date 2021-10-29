@@ -64,7 +64,7 @@
     "test": "react-scripts test",
     "build": "GENERATE_SOURCEMAP=false react-scripts build",
     "start": "webpack-dev-server --config webpack.config.js",
-    "startServer": "nodemon ./server/api/index.js localhost 8080",
+    "startServer": "nodemon ./server/api/index.js localhost 8000",
     "startWebPack": "webpack-dev-server --config webpack.config.js",
     "buildWebPack": "webpack --config webpack.config.js",
     "buildWebPackToAnalize": "webpack --config webpack.config.js --profile --json > stats.json",
