@@ -6,8 +6,8 @@ const SocketService = require("./SocketService");
   If you use other packages like express, use something like,
   const app = require("express")();
   const server = require("http").Server(app);
-
 */
+
 const server = http.createServer((req, res) => {
   res.write("Terminal Server Running.");
   res.end();

@@ -16,6 +16,7 @@ export const Footer = () => {
     const terminalRef = useRef(null);
 
     useEffect(() => {
+        // Start terminal and connection to backend.
         start(terminalRef.current);
     }, []);
 
