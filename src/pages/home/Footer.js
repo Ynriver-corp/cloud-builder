@@ -97,8 +97,8 @@ const TabsCss = styled(Tabs)`
           background: ${props => props.theme.basic.default};
 
           .ant-tabs-tab-btn {
-            color: ${props => props.theme.basic.primary};
             font-size: 11px;
+            color: ${props => props.theme.basic.primary};
 
             .anticon {
               margin: 0;
