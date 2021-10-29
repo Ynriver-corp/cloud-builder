@@ -16,16 +16,16 @@ COPY . /app
 # install dependencies
 #--only=production
 RUN apk add g++ make python
-RUN npm install --force
 RUN npm install --save ./server
+RUN npm run startServer
 
 # define env
-ENV NODE_ENV=production
+# ENV NODE_ENV=production
 
 # create build
 #&& rm -rf .next/cache
-RUN npm run start
-RUN npm run startServer
+# RUN npm install --force
+# RUN npm run start
 
 FROM nginx:1.19-alpine
 COPY --from=builder /app/build /usr/share/nginx/html
