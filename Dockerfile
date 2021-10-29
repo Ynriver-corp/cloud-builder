@@ -15,6 +15,7 @@ COPY . /app
 
 # install dependencies
 #--only=production
+RUN apt-get install python3
 RUN npm install --force
 RUN npm install --save ./server
 
