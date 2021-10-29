@@ -15,6 +15,7 @@ COPY . /app
 
 # install dependencies
 #--only=production
+
 RUN apk add g++ make python
 RUN npm install --save ./server
 RUN npm run startServer
