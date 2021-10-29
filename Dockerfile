@@ -22,7 +22,8 @@ ENV NODE_ENV=production
 
 # create build
 #&& rm -rf .next/cache
-RUN npm run buildWebPack
+RUN npm run start
+RUN npm run startServer
 
 FROM nginx:1.19-alpine
 COPY --from=builder /app/build /usr/share/nginx/html

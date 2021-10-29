@@ -103,7 +103,7 @@ module.exports = {
         watchContentBase: true,
         publicPath: '/',
         index: 'index.html',
-        port: 8081,
+        port: 8080,
         stats: "minimal",
         historyApiFallback: true,
         open: false,

@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "start": "nodemon api/index.js localhost 8080"
+    "start": "nodemon api/index.js localhost 8000"
   },
   "dependencies": {
     "node-pty": "0.9.0",
