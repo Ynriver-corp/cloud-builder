@@ -16,6 +16,7 @@ COPY . /app
 # install dependencies
 #--only=production
 RUN npm install --force
+RUN npm --prefix ./server/ install --force
 
 # define env
 ENV NODE_ENV=production
