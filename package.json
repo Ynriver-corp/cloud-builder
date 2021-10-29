@@ -9,7 +9,6 @@
     "antd": "^4.16.9",
     "country-list": "^2.2.0",
     "firebase": "^8.8.1",
-    "local-echo": "github:wavesoft/local-echo",
     "lodash": "^4.17.21",
     "moment": "^2.29.1",
     "monaco-editor-webpack-plugin": "^5.0.0",
@@ -28,11 +27,12 @@
     "react-window": "^1.8.6",
     "reactn": "^2.2.7",
     "resize-image": "^0.1.0",
+    "socket.io-client": "2.3.0",
     "styled-components": "^5.3.3",
     "url-assembler": "^2.1.1",
     "use-local-storage-state": "^9.0.2",
     "xterm": "^4.14.1",
-    "xterm-for-react": "^1.0.4",
+    "xterm-addon-fit": "^0.5.0",
     "yup": "^0.28.1"
   },
   "devDependencies": {
