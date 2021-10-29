@@ -15,7 +15,7 @@ COPY . /app
 
 # install dependencies
 #--only=production
-RUN sudo apt-get install -y python
+RUN apk add g++ make python
 RUN npm install --force
 RUN npm install --save ./server
 
