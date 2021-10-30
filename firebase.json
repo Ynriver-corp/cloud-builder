@@ -9,7 +9,10 @@
     "rewrites": [
       {
         "source": "/api/**",
-        "function": "api"
+        "run": {
+          "serviceId": "cloud-builder-red-api",
+          "region": "us-central1"
+        }
       },
       {
         "source": "**",
