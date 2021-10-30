@@ -27,8 +27,8 @@ RUN npm install --save ./server
 # RUN npm install --force
 # RUN npm run buildWebPack
 
-FROM nginx:1.19-alpine
-COPY --from=builder /app/build /usr/share/nginx/html
+#FROM nginx:1.19-alpine
+#COPY --from=builder /app/build /usr/share/nginx/html
 EXPOSE 80
 CMD ["npm", "startServer"]
 # CMD ["nginx", "-g", "daemon off;"]
