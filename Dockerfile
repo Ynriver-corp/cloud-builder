@@ -29,6 +29,8 @@ RUN npm install --save ./server
 
 #FROM nginx:1.19-alpine
 #COPY --from=builder /app/build /usr/share/nginx/html
-EXPOSE 80
+ARG SERVER_PORT=8000
+ENV SERVER_PORT=$SERVER_PORT
+EXPOSE $SERVER_PORT
 CMD ["npm", "startServer"]
 # CMD ["nginx", "-g", "daemon off;"]
