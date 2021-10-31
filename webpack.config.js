@@ -11,7 +11,7 @@ const CopyPlugin = require("copy-webpack-plugin");
 const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
 
 module.exports = {
-    mode: "development"/*production development*/,
+    mode: "production"/*production development*/,
     entry: path.resolve(__dirname, 'src/index.js'),
     output: {
         path: path.resolve(__dirname, 'build'),
