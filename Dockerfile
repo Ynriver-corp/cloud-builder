@@ -19,9 +19,17 @@ EXPOSE $SERVER_PORT
 RUN apt-get -y update
 RUN apt-get -y install git
 RUN apt-get -y install curl
-RUN apt-get -y install nginx
 RUN apt-get -y install python
 RUN apt-get -y install build-essential
+RUN DEBIAN_FRONTEND=noninteractive apt-get -yq install nginx
+
+#RUN apt-get update && apt-get install -y \
+#git \
+#curl \
+#nginx \
+#python \
+#build-essential\
+#&& rm -rf /var/lib/apt/lists/*
 
 # Install nodejs
 RUN curl -sL https://deb.nodesource.com/setup_14.x | bash
@@ -46,5 +54,10 @@ COPY . /app
 RUN npm install --force --prefix ./server
 
 # start cloud-builder & terminal
-#CMD [ "npm", "run" , "start" ]
+#CMD [ "npm", "run" , "build" ]
 CMD [ "npm", "run" , "start", "--prefix", "./server"]
+
+COPY build /usr/share/nginx/html
+EXPOSE 80
+#CMD ["nginx", "-g", "daemon off;"]
+ENTRYPOINT ["/usr/sbin/nginx", "-g", "daemon off;"]
