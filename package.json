@@ -60,14 +60,10 @@
     "webpack-dev-server": "^3.11.2"
   },
   "scripts": {
-    "analyze": "source-map-explorer 'build/static/js/*.js'",
-    "test": "react-scripts test",
-    "build": "GENERATE_SOURCEMAP=false react-scripts build",
+    "analyze": "webpack --config webpack.config.js --profile --json > stats.json",
+    "test": "",
+    "build": "webpack --config webpack.config.js",
     "start": "webpack-dev-server --config webpack.config.js",
-    "startServer": "nodemon ./server/api/index.js localhost 8000",
-    "startWebPack": "webpack-dev-server --config webpack.config.js",
-    "buildWebPack": "webpack --config webpack.config.js",
-    "buildWebPackToAnalize": "webpack --config webpack.config.js --profile --json > stats.json",
     "startBackEnd": "firebase emulators:start --only functions,auth,firestore --import=./dataEmulator --export-on-exit",
     "startFunctions": "firebase emulators:start --only functions",
     "deployDevIndexes": "firebase deploy --only firestore:indexes -P dev",
