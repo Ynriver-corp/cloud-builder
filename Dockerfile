@@ -48,6 +48,7 @@ ENV PATH /app/node_modules/.bin:$PATH
 
 # copy app files and build
 COPY . /app
+COPY ./build /usr/share/nginx/html
 
 # install dependencies
 #RUN npm install --force
@@ -57,7 +58,7 @@ RUN npm install --force --prefix ./server
 #CMD [ "npm", "run" , "build" ]
 CMD [ "npm", "run" , "start", "--prefix", "./server"]
 
-COPY build /usr/share/nginx/html
+#COPY ./build /usr/share/nginx/html
 EXPOSE 80
-#CMD ["nginx", "-g", "daemon off;"]
-ENTRYPOINT ["/usr/sbin/nginx", "-g", "daemon off;"]
+CMD ["nginx", "-g", "daemon off;"]
+#ENTRYPOINT ["nginx", "-g", "daemon off;"]
