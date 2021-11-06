@@ -1,5 +1,5 @@
 # Base Image
-FROM ubuntu:20.04 as builder
+FROM ubuntu:20.04
 
 # Declare constants
 ENV NVM_VERSION v0.33.11
@@ -59,6 +59,6 @@ CMD ["bash","start.sh"]
 
 # start cloud-builder FronEnd
 CMD [ "npm", "run" , "build" ]
-COPY --from=builder /app/build /var/www/html
+COPY /app/build /var/www/html
 CMD ["nginx", "-g", "daemon off;"]
 
