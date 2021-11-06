@@ -1,0 +1,11 @@
+Dockerfile
+.dockerignore
+node_modules
+npm-debug.log
+README.md
+
+/server/Dockerfile
+/server/dockerignore
+/server/node_modules
+/server/npm-debug.log
+/server/README.md

@@ -1,5 +1,5 @@
 # Base Image
-FROM ubuntu:20.04
+FROM ubuntu:20.04 as builder
 
 # Declare constants
 ENV NVM_VERSION v0.33.11
@@ -7,10 +7,10 @@ ENV NODE_VERSION v14.10.0
 ENV NODE_ENV production
 
 # set port
-ENV TERMINAL_PORT 8082
-ENV SERVER_PORT 8081
-EXPOSE $TERMINAL_PORT
-EXPOSE $SERVER_PORT
+ENV BACK_PORT 8082
+ENV FRONT_PORT 80
+EXPOSE $BACK_PORT
+EXPOSE $FRONT_PORT
 
 # Replace shell with bash so we can source files
 #RUN rm /bin/sh && ln -s /bin/bash /bin/sh
@@ -50,16 +50,15 @@ ENV PATH /app/node_modules/.bin:$PATH
 COPY . /app
 
 # install dependencies
-#RUN npm install --force
+RUN npm install --force
 RUN npm install --force --prefix ./server
 
 # start cloud-builder terminal
 #CMD [ "npm", "run" , "start", "--prefix", "./server"]
-CMD ["/bin/bash", "/start.sh"]
+CMD ["bash","start.sh"]
 
 # start cloud-builder FronEnd
-#CMD [ "npm", "run" , "build" ]
-COPY ./build /usr/share/nginx/html
-EXPOSE 80
+CMD [ "npm", "run" , "build" ]
+COPY --from=builder /app/build /var/www/html
 CMD ["nginx", "-g", "daemon off;"]
-#ENTRYPOINT ["nginx", "-g", "daemon off;"]
+

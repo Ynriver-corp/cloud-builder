@@ -1,5 +1,3 @@
-// PTYService.js
-
 const os = require("os");
 const pty = require("node-pty");
 
