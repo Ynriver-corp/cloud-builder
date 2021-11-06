@@ -48,17 +48,18 @@ ENV PATH /app/node_modules/.bin:$PATH
 
 # copy app files and build
 COPY . /app
-COPY ./build /usr/share/nginx/html
 
 # install dependencies
 #RUN npm install --force
 RUN npm install --force --prefix ./server
 
-# start cloud-builder & terminal
-#CMD [ "npm", "run" , "build" ]
-CMD [ "npm", "run" , "start", "--prefix", "./server"]
+# start cloud-builder terminal
+#CMD [ "npm", "run" , "start", "--prefix", "./server"]
+CMD ["/bin/bash", "/start.sh"]
 
-#COPY ./build /usr/share/nginx/html
+# start cloud-builder FronEnd
+#CMD [ "npm", "run" , "build" ]
+COPY ./build /usr/share/nginx/html
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
 #ENTRYPOINT ["nginx", "-g", "daemon off;"]
