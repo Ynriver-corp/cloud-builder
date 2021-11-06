@@ -13,7 +13,7 @@ EXPOSE $BACK_PORT
 EXPOSE $FRONT_PORT
 
 # Replace shell with bash so we can source files
-#RUN rm /bin/sh && ln -s /bin/bash /bin/sh
+RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 # Install dependencies
 RUN apt-get -y update
@@ -46,19 +46,22 @@ WORKDIR /app
 # add binaries to $PATH
 ENV PATH /app/node_modules/.bin:$PATH
 
-# copy app files and build
+# copy app files
 COPY . /app
 
-# install dependencies
-RUN npm install --force
-RUN npm install --force --prefix ./server
-
-# start cloud-builder terminal
+# start cloud-builder Terminal
 #CMD [ "npm", "run" , "start", "--prefix", "./server"]
-CMD ["bash","start.sh"]
+RUN npm install --force --prefix ./server
+#CMD ["bash","start.sh"]
 
 # start cloud-builder FronEnd
-CMD [ "npm", "run" , "build" ]
-COPY /app/build /var/www/html
-CMD ["nginx", "-g", "daemon off;"]
+#RUN npm install --force
+#RUN npm run build
+#RUN cp /app/build /var/www/html
+#CMD [ "cp", "/app/build" , "/var/www/html" ]
+COPY /build /var/www/html
+#CMD ["nginx", "-g", "daemon off;"]
+
+CMD ["bash","start.sh"]
+
 
