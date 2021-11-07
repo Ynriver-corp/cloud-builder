@@ -66,14 +66,10 @@
     "test": "",
     "build": "webpack --config webpack.config.js",
     "start": "webpack-dev-server --config webpack.config.js",
-    "startBackEnd": "firebase emulators:start --only functions,auth,firestore --import=./dataEmulator --export-on-exit",
-    "startFunctions": "firebase emulators:start --only functions",
     "deployDevIndexes": "firebase deploy --only firestore:indexes -P dev",
     "deployProdIndexes": "firebase deploy --only firestore:indexes -P default",
     "deployDev": "webpack --config webpack.config.js && firebase deploy -P dev",
-    "deployProd": "webpack --config webpack.config.js && firebase deploy -P default",
-    "deployDevFront": "webpack --config webpack.config.js && firebase deploy -P dev --except functions",
-    "deployProdFront": "webpack --config webpack.config.js && firebase deploy -P default --except functions"
+    "deployProd": "webpack --config webpack.config.js && firebase deploy -P default"
   },
   "eslintConfig": {
     "extends": "react-app"
