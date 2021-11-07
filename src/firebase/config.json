@@ -20,7 +20,7 @@
       "measurementId": "G-1TLCE43E8L"
     },
     "serverUrlLocal": "http://localhost:5001/cloud-builder-330002/us-central1/api",
-    "serverUrl": "https://cloud-builder-330002.web.app",
+    "serverUrl": "https://cloud-builder-330002.web.app/api",
     "storageUrl": "https://storage.googleapis.com/cloud-builder-330002.appspot.com",
     "analytics": ""
   },
@@ -45,7 +45,7 @@
       "measurementId": "G-1TLCE43E8L"
     },
     "serverUrlLocal": "http://localhost:5001/cloud-builder-330002/us-central1/api",
-    "serverUrl": "https://cloud-builder-330002.web.app",
+    "serverUrl": "https://cloud-builder-330002.web.app/api",
     "storageUrl": "https://storage.googleapis.com/cloud-builder-330002.appspot.com",
     "analytics": ""
   }
