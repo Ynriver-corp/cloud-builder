@@ -11,7 +11,7 @@ const CopyPlugin = require("copy-webpack-plugin");
 const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
 
 module.exports = {
-    mode: "production"/*production development*/,
+    mode: "development"/*production development*/,
     entry: path.resolve(__dirname, 'src/index.js'),
     output: {
         path: path.resolve(__dirname, 'build'),
@@ -31,7 +31,8 @@ module.exports = {
         new webpack.DefinePlugin({
             "process.env": {
                 NODE_ENV: JSON.stringify("production"),
-                PUBLIC_URL: JSON.stringify("")
+                PUBLIC_URL: JSON.stringify(""),
+                HOME: JSON.stringify(process.env.HOME)
             }
         }),
         new HtmlWebpackPlugin({
@@ -103,7 +104,7 @@ module.exports = {
         watchContentBase: true,
         publicPath: '/',
         index: 'index.html',
-        port: 8081,
+        port: 8080,
         stats: "minimal",
         historyApiFallback: true,
         open: false,

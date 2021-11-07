@@ -3,7 +3,7 @@ import styled from "styled-components";
 import {mediaQuery} from "../../constants";
 import {Tabs} from "antd";
 import {CloseOutlined} from "@ant-design/icons";
-import {start} from "./Terminal";
+//import {startTerminal} from "./Terminal/TerminalProccess";
 
 const {TabPane} = Tabs;
 
@@ -17,7 +17,8 @@ export const Footer = () => {
 
     useEffect(() => {
         // Start terminal and connection to backend.
-        start(terminalRef.current);
+        //start(terminalRef.current);
+        //startTerminal(terminalRef.current)
     }, []);
 
     const closeTerminal = async (key) => {

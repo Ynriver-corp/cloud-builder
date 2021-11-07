@@ -52,7 +52,7 @@ COPY . /app
 # start cloud-builder Terminal
 #CMD [ "npm", "run" , "start", "--prefix", "./server"]
 RUN npm install --force --prefix ./server
-CMD ["bash","start.sh"]
+#CMD ["bash","start.sh"]
 
 # start cloud-builder FronEnd
 #RUN npm install --force
