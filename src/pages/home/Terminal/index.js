@@ -1,8 +1,9 @@
 import {TerminalUI} from "./TerminalUI";
 import io from "socket.io-client";
+import {config} from "../../../firebase";
 
 // IMPORTANT: Make sure you replace this address with your server address.
-const serverAddress = "http://localhost:8082";
+const serverAddress = `${config.serverUrl}` && "http://localhost:8080";
 
 const connectToSocket = (serverAddress) =>
     new Promise(resolve => {
