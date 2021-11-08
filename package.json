@@ -68,6 +68,8 @@
     "start": "webpack-dev-server --config webpack.config.js",
     "deployDevIndexes": "firebase deploy --only firestore:indexes -P dev",
     "deployProdIndexes": "firebase deploy --only firestore:indexes -P default",
+    "deployDevHosting": "firebase deploy -P dev --only hosting",
+    "deployProdHosting": "firebase deploy -P default --only hosting",
     "deployDev": "webpack --config webpack.config.js && firebase deploy -P dev",
     "deployProd": "webpack --config webpack.config.js && firebase deploy -P default"
   },

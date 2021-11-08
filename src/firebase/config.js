@@ -38,7 +38,7 @@ try {
 }
 
 if (hostName === "localhost") {
-    config.serverUrl = config.serverUrlLocal;
+    //config.serverUrl = config.serverUrlLocal;
     //firestore.useEmulator("localhost", 8080);
     //auth.useEmulator("http://localhost:9099/");
 }

@@ -32,7 +32,6 @@ module.exports = {
             "process.env": {
                 NODE_ENV: JSON.stringify("production"),
                 PUBLIC_URL: JSON.stringify(""),
-                HOME: JSON.stringify(process.env.HOME)
             }
         }),
         new HtmlWebpackPlugin({
