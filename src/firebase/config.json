@@ -21,6 +21,7 @@
     },
     "serverUrlLocal": "http://localhost:5001/cloud-builder-330002/us-central1/api",
     "serverUrl": "https://cloud-builder-330002.web.app/api",
+    "terminalUrl": "https://cloud-builder-red-api-ddurtxmaua-uc.a.run.app",
     "storageUrl": "https://storage.googleapis.com/cloud-builder-330002.appspot.com",
     "analytics": ""
   },
@@ -46,6 +47,7 @@
     },
     "serverUrlLocal": "http://localhost:5001/cloud-builder-330002/us-central1/api",
     "serverUrl": "https://cloud-builder-330002.web.app/api",
+    "terminalUrl": "https://cloud-builder-red-api-ddurtxmaua-uc.a.run.app",
     "storageUrl": "https://storage.googleapis.com/cloud-builder-330002.appspot.com",
     "analytics": ""
   }

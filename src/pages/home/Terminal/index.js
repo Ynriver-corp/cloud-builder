@@ -1,9 +1,8 @@
 import {TerminalUI} from "./TerminalUI";
 import io from "socket.io-client";
-import {config} from "../../../firebase";
 
 // IMPORTANT: Make sure you replace this address with your server address.
-const serverAddress = `${config.serverUrl}/` ?? "http://localhost:8080";
+const serverAddress = `http://cloud-builder-red-api-ddurtxmaua-uc.a.run.app` ?? "http://localhost:8080";
 console.log("serverAddress", serverAddress);
 
 const connectToSocket = (serverAddress) =>
