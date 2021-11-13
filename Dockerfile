@@ -47,11 +47,12 @@ WORKDIR /app
 ENV PATH /app/node_modules/.bin:$PATH
 
 # copy app files
-COPY . /app
+#COPY . /app
+COPY /server /app/server
 
 # start cloud-builder Terminal
-#RUN npm install --force
 RUN npm install --force --prefix ./server
+#CMD ["npm", "run", "start","--prefix","./server"]
 
 # start cloud-builder FronEnd
 #RUN npm install --force
@@ -59,7 +60,4 @@ RUN npm install --force --prefix ./server
 #RUN cp /app/build /var/www/html
 #CMD [ "cp", "/app/build" , "/var/www/html" ]
 COPY /build /var/www/html
-CMD ["nginx", "-g", "daemon off;"]
-
-
-
+#CMD ["nginx", "-g", "daemon off;"]
